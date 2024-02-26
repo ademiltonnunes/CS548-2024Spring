@@ -77,8 +77,8 @@ Request without sending body:
 Adding 1 hour.
     I am going to show the current time to compare the POST result:
     - Current time:
-![Current Time](./Screenshots/6.png)
+![Current Time](./Screenshots/7.png)
 
     - POST result:
-![POST result](./Screenshots/7.png)
+![POST result](./Screenshots/8.png)
 
