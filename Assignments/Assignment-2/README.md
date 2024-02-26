@@ -19,32 +19,32 @@ If you are not able to add the screen recording then attach the screenshot which
 
 ## GET
 Create a GET that shows the current time. Accessed by the route: “/marcelo/time”:
-'''
-startup.post('/add-time', (req, res) => {
-    var now = new Date();
-
-    if (req.body && (req.body.hour || req.body.minute || req.body.second)) {
-
-        hoursToAdd = req.body.hour || 0;
-        minutesToAdd = req.body.minute || 0;
-        secondsToAdd = req.body.second || 0;
-
-        now.setHours(now.getHours() + hoursToAdd);
-        now.setMinutes(now.getMinutes() + minutesToAdd);
-        now.setSeconds(now.getSeconds() + secondsToAdd);
-
-        var newTime =
-        now.getHours() + ":" +
-        now.getMinutes() + ":" +
-        now.getSeconds();
-
-        res.status(200);
-        res.json({ message: `New time: ${newTime}` });
-    } else {
-        res.status(400).json({ message: `No valid time parameters provided` });
-    }
-});
-'''
+```
+    startup.post('/add-time', (req, res) => {
+        var now = new Date();
+    
+        if (req.body && (req.body.hour || req.body.minute || req.body.second)) {
+    
+            hoursToAdd = req.body.hour || 0;
+            minutesToAdd = req.body.minute || 0;
+            secondsToAdd = req.body.second || 0;
+    
+            now.setHours(now.getHours() + hoursToAdd);
+            now.setMinutes(now.getMinutes() + minutesToAdd);
+            now.setSeconds(now.getSeconds() + secondsToAdd);
+    
+            var newTime =
+            now.getHours() + ":" +
+            now.getMinutes() + ":" +
+            now.getSeconds();
+    
+            res.status(200);
+            res.json({ message: `New time: ${newTime}` });
+        } else {
+            res.status(400).json({ message: `No valid time parameters provided` });
+        }
+    });
+```
 
 **Result:**
 ![GET](./Screenshots/4.png)
@@ -54,30 +54,30 @@ startup.post('/add-time', (req, res) => {
 Created a POST that adds time (hour, minutes, or second) to the current time. Accessed by the route: “/marcelo/add-time”
 
 ```
-startup.post('/add-time', (req, res) => {
-    var now = new Date();
-
-    if (req.body && (req.body.hour || req.body.minute || req.body.second)) {
-
-        hoursToAdd = req.body.hour || 0;
-        minutesToAdd = req.body.minute || 0;
-        secondsToAdd = req.body.second || 0;
-
-        now.setHours(now.getHours() + hoursToAdd);
-        now.setMinutes(now.getMinutes() + minutesToAdd);
-        now.setSeconds(now.getSeconds() + secondsToAdd);
-
-        var newTime =
-        now.getHours() + ":" +
-        now.getMinutes() + ":" +
-        now.getSeconds();
-
-        res.status(200);
-        res.json({ message: `New time: ${newTime}` });
-    } else {
-        res.status(400).json({ message: `No valid time parameters provided` });
-    }
-});
+    startup.post('/add-time', (req, res) => {
+        var now = new Date();
+    
+        if (req.body && (req.body.hour || req.body.minute || req.body.second)) {
+    
+            hoursToAdd = req.body.hour || 0;
+            minutesToAdd = req.body.minute || 0;
+            secondsToAdd = req.body.second || 0;
+    
+            now.setHours(now.getHours() + hoursToAdd);
+            now.setMinutes(now.getMinutes() + minutesToAdd);
+            now.setSeconds(now.getSeconds() + secondsToAdd);
+    
+            var newTime =
+            now.getHours() + ":" +
+            now.getMinutes() + ":" +
+            now.getSeconds();
+    
+            res.status(200);
+            res.json({ message: `New time: ${newTime}` });
+        } else {
+            res.status(400).json({ message: `No valid time parameters provided` });
+        }
+    });
 ```
 
 - **Result 1**
@@ -86,10 +86,11 @@ Request without sending body:
 
 
 - **Result 2**
-Adding 1 hour. I am going to show the current time to compare the POST result:
-Current time:
+Adding 1 hour.
+    I am going to show the current time to compare the POST result:
+    - Current time:
 ![Current Time](./Screenshots/6.png)
 
-POST result:
+    - POST result:
 ![POST result](./Screenshots/7.png)
 
