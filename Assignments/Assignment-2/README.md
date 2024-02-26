@@ -8,13 +8,14 @@ If you are not able to add the screen recording then attach the screenshot which
 
 ## Running Server
 - Terminal
-![Running Server](./Assignments/Assignment-2/Screenshots/1.png)
+![Running Server](./Screenshots/1.png)
+
 
 - Route set to run as https://localhot:8080/marcelo
-![Route](./Assignments/Assignment-2/Screenshots/2.png)
+![Route](./Screenshots/2.png)
 
 - Browser:
-![Browser](./Assignments/Assignment-2/Screenshots/3.png)
+![Browser](./Screenshots/3.png)
 
 ## GET
 Create a GET that shows the current time. Accessed by the route: “/marcelo/time”:
@@ -46,7 +47,7 @@ startup.post('/add-time', (req, res) => {
 '''
 
 **Result:**
-![GET](./Assignments/Assignment-2/Screenshots/4.png)
+![GET](./Screenshots/4.png)
 
 
 ## POST
@@ -81,14 +82,14 @@ startup.post('/add-time', (req, res) => {
 
 - **Result 1**
 Request without sending body:
-![POST no body](./Assignments/Assignment-2/Screenshots/5.png)
+![POST no body](./Screenshots/5.png)
 
 
 - **Result 2**
 Adding 1 hour. I am going to show the current time to compare the POST result:
 Current time:
-![Current Time](./Assignments/Assignment-2/Screenshots/6.png)
+![Current Time](./Screenshots/6.png)
 
 POST result:
-![POST result](./Assignments/Assignment-2/Screenshots/7.png)
+![POST result](./Screenshots/7.png)
 
