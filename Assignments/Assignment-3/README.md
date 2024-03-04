@@ -56,4 +56,4 @@ Request sending student-id:
 
 - **Result**
 I tested sending my student id:
-![Result except cs548](./Screenshots/9.png)
+![Result except cs548](./Screenshots/10.png)
