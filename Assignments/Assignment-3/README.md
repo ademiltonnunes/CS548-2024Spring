@@ -1,84 +1,59 @@
-# Assingment 2
+# Assingment 3
 
-**Description:** 
-Attach the screen recording and your code (GitHub link) with HTTPS working. Create one GET or POST request.
-The web service must be in HTTPS.
-The SSL creation should be based on the lecture standard.
-If you are not able to add the screen recording then attach the screenshot which should show that it is your personal laptop.
+## Report
+It is the report of the assignment 3.
+## Create a HTTPS Server
+I created the server in the route https://localhot:8080.
+I put it to show the device type and IP address:
 
-## Running Server
 - Terminal
 ![Running Server](./Screenshots/1.png)
 
-
-- Route set to run as https://localhot:8080/marcelo
-![Route](./Screenshots/2.png)
-
 - Browser:
-![Browser](./Screenshots/3.png)
+![Browser](./Screenshots/2.png)
 
-## GET
-Create a GET that shows the current time. Accessed by the route: “/marcelo/time”:
-```
-    startup.get('/time', (req, res) => {
-        res.status(200);
-        res.setHeader('Content-Type', 'text/plain');
-    
-        var now = new Date();
-        // Get the current hour, minute, and second
-        var currentHour = now.getHours();
-        var currentMinute = now.getMinutes();
-        var currentSecond = now.getSeconds();
-        var currentTime = currentHour + ":" + currentMinute + ":" + currentSecond;
-        res.send("Now it is: " + currentTime);
-    });
-```
+## Create a routes for:
+
+### GET  / to retrieve all the student-info
+- I create the route https://localhost:8080/students
+- It shows the device name and IP address in the beginning of JSON
 
 **Result:**
-![GET](./Screenshots/4.png)
+![GET ALL](./Screenshots/3.png)
 
 
-## POST
-Created a POST that adds time (hour, minutes, or second) to the current time. Accessed by the route: “/marcelo/add-time”
+### POST /to retrieve your information based on 'student-id'
+- I am using the same route https://localhost:8080/students, but this is a POST so I need to inform the student id
 
-```
-    startup.post('/add-time', (req, res) => {
-        var now = new Date();
-    
-        if (req.body && (req.body.hour || req.body.minute || req.body.second)) {
-    
-            hoursToAdd = req.body.hour || 0;
-            minutesToAdd = req.body.minute || 0;
-            secondsToAdd = req.body.second || 0;
-    
-            now.setHours(now.getHours() + hoursToAdd);
-            now.setMinutes(now.getMinutes() + minutesToAdd);
-            now.setSeconds(now.getSeconds() + secondsToAdd);
-    
-            var newTime =
-            now.getHours() + ":" +
-            now.getMinutes() + ":" +
-            now.getSeconds();
-    
-            res.status(200);
-            res.json({ message: `New time: ${newTime}` });
-        } else {
-            res.status(400).json({ message: `No valid time parameters provided` });
-        }
-    });
-```
-
-- **Result 1**
-Request without sending body:
-![POST no body](./Screenshots/5.png)
+- **Request**
+Request sending student-id:
+![Request Post StudentId](./Screenshots/4.png)
 
 
-- **Result 2**
-Adding 1 hour.
-    I am going to show the current time to compare the POST result:
-    - Current time:
-![Current Time](./Screenshots/7.png)
+- **Result**
+I tested sending my student ID:
+![Result Post Student Id](./Screenshots/5.png)
 
-    - POST result:
-![POST result](./Screenshots/8.png)
+### POST /to retrieve student's info who has taken CS548 -> the result should be all students ( return student-id only)
+- I am using the same route https://localhost:8080/students/course
 
+- **Request**
+Request sending course-id:
+![Request Post CourseId](./Screenshots/6.png)
+
+
+- **Result**
+I tested sending my the Course ID CS548:
+![Result Post CourseId](./Screenshots/7.png)
+
+### POST /to retrieve who has taken the courses you have taken except CS548.
+- I am using the same route https://localhost:8080/students/sameclass/exceptCS548
+
+- **Request**
+Request sending student-id:
+![Request except cs548](./Screenshots/8.png)
+
+
+- **Result**
+I tested sending my student id:
+![Result except cs548](./Screenshots/9.png)
