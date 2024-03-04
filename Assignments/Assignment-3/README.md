@@ -1,4 +1,4 @@
-# Assingment 3
+# Assignment 3
 
 ## Report
 It is the report of the assignment 3.
