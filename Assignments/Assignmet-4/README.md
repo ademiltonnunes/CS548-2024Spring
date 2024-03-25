@@ -40,3 +40,12 @@ I created and configurated Upstream API to access the json File. In order to do 
 ## Create a new React application.
 The frontend in React is stored in the folder frontend [Here](./frontend)
 
+### Create a new component to fetch the endpoint you created in your server.
+I created a component to fetch information from backend.
+The component List all stores.
+- Fetch all stores
+![FrontEnd all stores](./Screenshots/8.png)
+
+I also created a filter for zipcode that filter stores that area maped in a specific zipcode.
+- Filtering store by zipcode
+![Fronted filtered stores](./Screenshots/9.png)
