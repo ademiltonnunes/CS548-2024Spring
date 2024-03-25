@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import StoreList from './StoreList';
+import useZipcodeValidation from '../hooks/zipCodeValidation';
 
 const Main = () => {
   const [stores, setStores] = useState([]);
-  const [zipcode, setZipcode] = useState('');
+  // const [zipcode, setZipcode] = useState('');
+  const { zipcode, handleZipcodeChange, validateZipcode, error } = useZipcodeValidation();
 
   useEffect(() => {
     fetchAllStores();
@@ -22,9 +24,8 @@ const Main = () => {
   const filterStoresByZipcode = async () => {
     try {
 
-      if (!zipcode) {
-        fetchAllStores();
-        return;
+      if (!validateZipcode()) {
+        return; // Exit early if validation fails
       }
       
       const response = await axios.post('https://localhost:8080/store/zipcode', { zipCode: zipcode });
@@ -45,8 +46,9 @@ const Main = () => {
           type="text"
           placeholder="Enter ZIP Code"
           value={zipcode}
-          onChange={(e) => setZipcode(e.target.value)}
+          onChange={(e) => handleZipcodeChange(e.target.value)}
         />
+        {error && <div className="error">{error}</div>}
         <button onClick={filterStoresByZipcode}>Filter</button>
       </div>
       <StoreList stores={stores} />
